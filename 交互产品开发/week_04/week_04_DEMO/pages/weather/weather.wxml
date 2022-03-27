@@ -1,12 +1,48 @@
 <!--pages/weather/weather.wxml-->
+<view class="container"> 
 
-<view>{{geo_location}}</view>
-<view>温度：{{weather_now.temp}}℃</view>
-<view>湿度：{{weather_now.humidity}}%</view>
-<view>气压：{{weather_now.pressure}}hPa</view>
-<view>能见度：{{weather_now.vis}}km</view>
-<view>风向：{{weather_now.windDir}}</view>
-<view>风速：{{weather_now.windSpeed}}km/h</view>
-<view>风力：{{weather_now.windScale}}级</view>
+  <!-- 区域1: 区域选择器-->  
+  <view class="section">
+    <picker mode="region" bindchange="bindRegionChange" value="{{region}}" custom-item="{{customItem}}">
+      <view class="picker">
+        {{region[0]}}，{{region[1]}}，{{region[2]}}
+      </view>
+    </picker>
+  </view>
+
+  <!-- 区域2: 单行天气信息-->  
+  <text>{{weather_now.temp}} ℃ {{weather_now.text}}</text>
+
+  <!-- 区域3: 天气图标-->
+  <image wx:if="{{weather_now.icon.length>0}}" src="/images/{{weather_now.icon}}.svg"> </image>
+
+  <!-- 区域4: 多行天气信息-->
+  <view class="detail">
+    <!-- <view>{{geo_location}}</view> -->
+    <view class="bar">
+      <view class="box">湿度</view>
+      <view class="box">气压</view>
+      <view class="box">能见度</view>
+    </view>
+    <view class="bar">
+      <view class="box">{{weather_now.humidity}} %</view>
+      <view class="box">{{weather_now.pressure}} hPa</view>
+      <view class="box">{{weather_now.vis}} km</view>
+    </view>
+    <view class="bar">
+      <view class="box">风向</view>
+      <view class="box">风速</view>
+      <view class="box">风力</view>
+    </view>
+    <view class="bar">
+      <view class="box">{{weather_now.windDir}}</view>
+      <view class="box">{{weather_now.windSpeed}} km/h</view>
+      <view class="box">{{weather_now.windScale}} 级</view>
+    </view>
+  </view>
+  
+
+</view>
+
 
 

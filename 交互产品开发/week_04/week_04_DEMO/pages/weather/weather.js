@@ -6,7 +6,16 @@ Page({
    */
   data: {
     geo_location: "113.678280,23.628439",
-    weather_now: ""
+    weather_now: "",
+    region: ['广东省', '广州市', '从化区']
+  },
+
+  bindRegionChange: function (e) {
+    this.location()
+    console.log('picker发送选择改变，携带值为', e.detail.value)
+    this.setData({
+      region: e.detail.value
+    })
   },
 
   // 请求高德地图API，获得地理位置信息
@@ -15,13 +24,14 @@ Page({
     wx.request({
       url: 'https://restapi.amap.com/v3/geocode/geo?', // 高德地理编码API接口
       data: {
-        address: '广东省广州市从化区广州南方学院',
+        address: this.data.region[0] + this.data.region[1] + this.data.region[2],
         key: '137d2023829ab755fded4b9b0998d5b8'
       },
       header: {
         'content-type': 'application/json' // 默认值
       },
       success (res) {
+        that.weather()
         console.log(res.data.geocodes[0].location) //打印数据
         that.setData({
           geo_location: res.data.geocodes[0].location

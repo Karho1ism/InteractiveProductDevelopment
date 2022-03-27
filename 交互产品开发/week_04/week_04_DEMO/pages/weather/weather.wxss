@@ -1,5 +1,13 @@
 /* pages/weather/weather.wxss *//* pages/index/index.wxss */
 /*文本样式*/
+.container{
+  display: flex;
+  flex-direction: column;
+  height: 100vh;
+  align-items: center;
+  justify-content: space-around;
+}
+
 text{
   font-size: 80rpx;
   color:#e4bd12;
