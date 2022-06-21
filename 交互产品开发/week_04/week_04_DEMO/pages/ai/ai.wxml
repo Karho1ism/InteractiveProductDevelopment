@@ -1,0 +1,41 @@
+<!--pages/ai/ai.wxml-->
+<cu-custom bgColor="bg-gradual-blue">
+  <view slot="content">AI识图</view>
+</cu-custom>
+
+<view class="categroy-left margin-top">
+  <view wx:for="{{category}}" wx:key="index" data-index="{{index}}" data-id="{{item.id}}" bindtap="switchTab" class="cate-list {{curIndex === index?'on':''}}">{{item.title}}</view>
+</view>
+
+<scroll-view class="categroy-right margin-top" scroll-y="{{isScroll}}" scroll-into-view="{{toView}}" scroll-with-animation>
+  <block wx:for="{{category}}">
+    <view id="{{item.id}}" class="cate-box">
+      <view class="cu-bar bg-white solid-bottom">
+        <view class="action">
+          <text class="cuIcon-title text-blue"></text>{{item.title}}
+        </view>
+      </view>
+      <view class="bg-img bg-mask padding-tb-xl" style="background-image: url('{{item.bg_img}}');height: 380rpx;">
+        <view class="padding-xs text-white">
+          <view class="padding-xs text-xl">
+            {{item.title}}
+          </view>
+          <view class="padding-xs">
+            {{item.content}}.
+          </view>
+        </view>
+      </view>
+      <button class="margin-top cu-btn round bg-blue {{modalName=='bottomModal'?'show':''}}" style="width: 200rpx;" bindtap="showModal" data-target="bottomModal" bindtap="selectImage" data-T="{{item.title}}">立即体验</button>
+      <!-- 底部模态窗样式 -->
+      <!-- <view class="cu-modal bottom-modal {{modalName=='bottomModal'?'show':''}}">
+        <view class="cu-dialog">
+          <view class="padding-xs">
+            <view class="text-xl solid-bottom padding-sm">拍照</view>
+            <view class="text-xl solid-bottom padding-sm" bindtap="selectImage">从手机中选择照片</view>
+            <view class="text-xl padding-sm" bindtap="hideModal">取消</view>
+          </view>
+        </view>
+      </view> -->
+    </view>
+  </block>
+</scroll-view>

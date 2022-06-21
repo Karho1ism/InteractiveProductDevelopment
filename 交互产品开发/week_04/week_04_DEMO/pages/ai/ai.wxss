@@ -1,0 +1,50 @@
+/* pages/ai/ai.wxss */
+page,.main{
+  height: 100%;
+}
+
+.categroy-left{
+  float: left;
+  width: 150rpx;
+  height: 450rpx;
+  box-sizing: border-box;
+  background-color: white;
+}
+.categroy-left .cate-list{
+  height: 90rpx;
+  line-height: 90rpx;
+  text-align: center;
+  border-left: 3px solid #ddd;
+  font-size:30rpx;
+
+}
+.categroy-left .cate-list.on{
+  color: #0081ff;
+  border-color: #0081ff;
+  background-color:#f1f1f1;
+}
+
+.categroy-right{
+  float: right;
+  width: 600rpx;
+  height: 100%;
+  overflow: hidden;
+}
+
+.cate-title::after{
+  position: absolute;
+  right: 130rpx;
+  top: 43rpx;
+  content: '';
+  width: 70rpx;
+  height: 4rpx;
+  background: #AB956D;
+}
+
+.cate-box{
+  height: 100%;
+  padding-left:40rpx;
+  padding-right:40rpx;
+  box-sizing: border-box;
+  
+}

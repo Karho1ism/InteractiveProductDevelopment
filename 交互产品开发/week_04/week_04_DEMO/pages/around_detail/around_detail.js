@@ -1,21 +1,14 @@
-// pages/weather/weather.js
+// pages/around/around.js
 Page({
 
   /**
    * 页面的初始数据
    */
   data: {
-    geo_location: "113.678280,23.628439",
-    weather_now: "",
-    region: ['广东省', '广州市', '海珠区']
-  },
-
-  bindRegionChange: function (e) {
-    console.log('picker发送选择改变，携带值为', e.detail.value)
-    this.setData({
-      region: e.detail.value
-    })
-    this.location()
+    title: "",
+    geo_location: "",
+    around:'',
+    types: ''
   },
 
   // 请求高德地图API，获得地理位置信息
@@ -35,28 +28,6 @@ Page({
         that.setData({
           geo_location: res.data.geocodes[0].location
         })
-        that.weather()
-      }
-    })
-  },
-
-  // 请求和风天气API
-  weather: function() {
-    var that = this
-    wx.request({
-      url: 'https://devapi.qweather.com/v7/weather/now?', // 和风天气实时天气API接口
-      data: {
-        location: that.data.geo_location,
-        key: '788814f7fa84444ca809cb2c63b663c5'
-      },
-      header: {
-        'content-type': 'application/json' // 默认值
-      },
-      success (res) {
-        console.log(res.data.now) //打印数据
-        that.setData({
-          weather_now: res.data.now
-        })
       }
     })
   },
@@ -65,9 +36,15 @@ Page({
    * 生命周期函数--监听页面加载
    */
   onLoad: function (options) {
-    var that = this // 这里that指函数内部，this指页面Page
+    var that = this
 
-    // 获取当前位置信息
+    // options 用来监听页面加载过程中的数据
+    console.log("around页面传递的数据: ",options)
+    this.setData({
+      title: options.detail_title
+    })
+    
+     // 获取当前位置信息
     wx.getLocation({
       type: 'wgs84',
       success (res) {
@@ -80,7 +57,7 @@ Page({
         that.setData({
           geo_location: res.longitude + ',' + res.latitude
         })
-        that.weather()
+        
         // 逆地理编码获取省市区API
         wx.request({
           url: 'https://restapi.amap.com/v3/geocode/regeo?parameters',
@@ -98,11 +75,27 @@ Page({
             })
           }
         })
+
+        // 请求周边搜索API
+        wx.request({
+          url: 'https://restapi.amap.com/v3/place/text?parameters', //周边搜索API
+          data: {
+            key: '137d2023829ab755fded4b9b0998d5b8', //高德API key
+            location: options.detail_location,
+            types: options.detail_amap
+          },
+          header: {
+            'content-type': 'application/json' // 默认值
+          },
+          success (res) {    
+            console.log(res.data)
+            that.setData({
+              around: res.data.pois
+            })
+          }
+        })
       }
      })
-     
-    // that.location(),
-    // that.weather()
   },
 
   /**
