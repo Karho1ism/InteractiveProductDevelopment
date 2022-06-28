@@ -34,14 +34,14 @@ Page({
         "id":"dbsb",
         "bg_img":'http://rcqjc8g2w.hn-bkt.clouddn.com/dbsb-bg.jpeg',
         "content":'支持识别12万中外著名地标、热门景点；还可使用EasyDL定制训练平台，定制地标分类标签。广泛应用于拍照识图、幼教科普、图片分类等场景',
-        "url":'https://aip.baidubce.com/rest/2.0/image-classify/v1/redwine'
+        "url":'https://aip.baidubce.com/rest/2.0/image-classify/v1/landmark'
       },
       {
         "title":"货币识别",
         "id":"hbsb",
         "bg_img":'http://rcqjc8g2w.hn-bkt.clouddn.com/hbsb-bg.jpeg',
         "content":'识别图像中的货币类型，返回货币名称、代码、面值、年份信息，可识别百余种国内外常见货币；还可使用EasyDL定制训练平台，定制识别货币种类',
-        "url":'https://aip.baidubce.com/rest/2.0/image-classify/v1/redwine'
+        "url":'https://aip.baidubce.com/rest/2.0/image-classify/v1/currency'
       }
     ],
     toView: 'hjsb' // 决定右侧的视图显示，与curIndex一一对应

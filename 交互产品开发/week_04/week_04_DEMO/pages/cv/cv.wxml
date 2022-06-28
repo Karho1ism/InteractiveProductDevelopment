@@ -4,7 +4,7 @@
   <view slot="content">AI识图</view>
 </cu-custom>
 
-<view class="cu-bar bg-white margin-top">
+<!-- <view class="cu-bar bg-white margin-top">
   <view class="action">
     <text class="cuIcon-title text-blue"></text>红酒识别结果
   </view>
@@ -22,7 +22,7 @@
       {{img_data.description}}
     </view>
   </view>
-</view>
+</view> -->
 
 <view class="cu-card case {{isCard?'no-card':''}}">
   <view class="cu-item shadow">
@@ -30,7 +30,7 @@
       <image src="{{bg_image}}" mode="widthFix"></image>
       <view class="cu-tag bg-blue">识别结果</view>
       <view class="cu-bar bg-shadeBottom">
-        <view class="text-cut">
+        <view class="height: 380rpx;">
           <view class="cu-list menu-avatar">
             <view class="padding-left-xm padding-bottom-xl text-white">
               <view class="padding-xs text-xl">
@@ -39,8 +39,9 @@
               <view class="padding-xs">
                 {{img_data.classifyByColor}}
                 {{img_data.classifyBySugar}}
-                {{img_data.color}}
-                {{img_data.countryCn}}
+                {{img_data.color}}{{img_data.countryCn}}
+              </view>
+              <view class="padding-xs">    
                 {{img_data.description}}
               </view>
             </view>

@@ -1,1 +1,4 @@
 /* pages/cv/cv.wxss */
+view {
+	word-break: break-all;
+}
