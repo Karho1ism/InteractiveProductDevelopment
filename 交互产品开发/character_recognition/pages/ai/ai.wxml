@@ -1,0 +1,12 @@
+<!--pages/cg/cg.wxml-->
+<cu-custom bgColor="bg-gradual-pink">
+  <view slot="content">识图取字</view>
+</cu-custom>
+
+<view>
+  <view class="load_image">
+    <button class="{{modalName=='bottomModal'?'show':''}}" style="background-color: transparent; height: 400rpx; width: 400rpx; padding: 0%;" bindtap="showModal" data-target="bottomModal" bindtap="selectImage" data-T="{{item.title}}">
+      <image src="/images/load_image01.png" mode="aspectFill" class="load_image_button"></image> 
+    </button>
+  </view> 
+</view>

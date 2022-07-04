@@ -1,0 +1,48 @@
+/* pages/cr/cr.wxss */
+/* view {
+	word-break: break-all;
+} */
+.cr_content{
+  position: relative;
+}
+
+.result{
+  height: 60%;
+  width: 100%;
+  margin-top: 20rpx;
+  position: fixed;
+  left: 0;
+  bottom: 0;
+  z-index: 2;
+  background-color: rgba(118, 118, 118, 0.9);
+}
+
+.scroll-container{
+  margin-top: 20rpx;
+  margin-bottom: 20rpx;
+  margin-left: 50rpx;
+  margin-right: 50rpx;
+  display: flex;
+  align-items: center;
+}
+
+.scroll-text{
+  height: 800rpx;
+  width: auto;
+}
+
+.text-container{
+  display: inline-block;
+  word-break: break-all;
+}
+
+.text_data text{
+  font-size: medium;
+  color: #ffffff;
+}
+
+.text_words{
+  margin-top: 20rpx;
+  font-weight: 200;
+  font-size: medium;
+}

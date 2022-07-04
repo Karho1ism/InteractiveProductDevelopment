@@ -1,0 +1,39 @@
+/* pages/cr/cr.wxss */
+/* view {
+	word-break: break-all;
+} */
+
+
+.result{
+  height: auto;
+  width: 100%;
+  margin-top: -100%; 
+  position: relative;
+  z-index: 999;
+  background-color: rgba(118, 118, 118, 0.8);
+}
+
+.text_data{
+  margin-top: 50rpx;
+  margin-bottom: 50rpx;
+  margin-left: 80rpx;
+  margin-right: 80rpx
+}
+
+.text_data text{
+  font-size: medium;
+  color: #ffffff;
+}
+
+.text_words{
+  margin-top: 20rpx;
+}
+
+.copy{
+  font-weight: normal;
+  font-size: larger;
+  color: #E5B5FD;
+  display: flex;
+  margin-left: 70%;
+  margin-top: 1%;
+}

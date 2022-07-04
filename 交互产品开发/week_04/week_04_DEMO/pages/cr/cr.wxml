@@ -1,0 +1,31 @@
+<!--顶部导航栏-->
+<cu-custom bgColor="bg-gradual-pink" isBack="{{true}}">
+  <view slot="backText">返回</view>
+  <view slot="content">识图取字</view>
+</cu-custom>
+
+<view>
+  <!-- 识别内容 -->
+  <view class="cu-card case {{isCard?'no-card':''}}">
+    <view class="cu-item shadow">
+      <view class="image">
+        <image src="{{bg_image}}" mode="widthFix"></image>
+      </view>
+    </view>
+  </view>
+
+  <!-- 识别结果 -->
+  <scroll-view class="result">
+    <view class="cu-tag bg-pink">识别结果</view>
+    <text class="copy" bindtap='copy' data-copy='{{copy_str}}'>全部复制</text>
+    <view>
+      <scroll-view>
+        <view class="text_data">
+          <view class="text_words" wx:for="{{text_data}}" wx:key="{{index}}">
+            <text user-select="true">{{item.words}}</text>
+          </view>
+        </view>
+      </scroll-view>
+    </view>
+  </scroll-view>
+</view>

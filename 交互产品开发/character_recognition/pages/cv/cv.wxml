@@ -1,0 +1,41 @@
+<!--顶部导航栏-->
+<cu-custom bgColor="bg-gradual-pink" isBack="{{true}}">
+  <view slot="backText">返回</view>
+  <view slot="content">图像识别</view>
+</cu-custom>
+
+<view class="cr">
+  <!-- 识别内容 -->
+  <view class="cr_content">
+    <view class="cu-card case {{isCard?'no-card':''}}">
+      <view class="cu-item shadow">
+        <view class="image">
+          <image src="{{bg_image}}" mode="widthFix"></image>
+        </view>
+      </view>
+    </view>
+  </view>
+
+  <!-- 识别结果 -->
+  <view class="result">
+    <view class="cu-tag bg-pink">识别结果</view>
+
+    <!-- 识别文本结果 -->
+    <view class="scroll-container">
+      <scroll-view class="scroll-text" scroll-y="{{true}}" show-scrollbar="{{true}}">
+        <view class="text-container">
+          <view class="text_data">
+            <view class="text_words" wx:for="{{img_data}}" wx:key="{{index}}">
+              <view style="color: #E5B5FD;">关键词:
+                <text user-select="true">{{item.keyword}}</text>
+              </view>
+              <view style="color: #E5B5FD;">置信度:
+                <text user-select="true">{{item.score}}</text>
+              </view>
+            </view>
+          </view>
+        </view>
+      </scroll-view>
+    </view>
+  </view>  
+</view>
